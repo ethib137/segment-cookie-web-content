@@ -1,4 +1,4 @@
-# Segment Cookie Web Content
+# Segment Cookie Web Content for Liferay DXP 7.2
 
 A web-content structure for setting cookies on pages that can be used with Liferay's Segments.
 
@@ -11,6 +11,7 @@ A web-content structure for setting cookies on pages that can be used with Lifer
 ![web-content](/segment.png)
 
 - Create a new web-content using the segment cookie template.
+- Make sure the `key` and `value` are the same for your segment and your web-content.
 
 ![web-content](/web-content.png)
 
