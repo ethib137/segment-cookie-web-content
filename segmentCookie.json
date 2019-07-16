@@ -1,0 +1,78 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Cookie Key"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "CookieKey",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Cookie Value"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "CookieValue",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Segmentation Visits Threshold"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "Number of times the user must visit the page before the cookie will be applied to them."
+            },
+            "dataType": "integer",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "SegmentationVisitsThreshold",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-integer"
+        }
+    ]
+}
