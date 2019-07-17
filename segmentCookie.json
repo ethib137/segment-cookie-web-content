@@ -23,7 +23,7 @@
             "name": "CookieKey",
             "readOnly": false,
             "repeatable": false,
-            "required": false,
+            "required": true,
             "showLabel": true,
             "type": "text"
         },
@@ -46,6 +46,29 @@
             "name": "CookieValue",
             "readOnly": false,
             "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "en_US": "Cookie Domain (example.com)"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "For the cookie to work across multiple pages it requires the same domain to be set with the cookie each time. The format should be \"example.com\". This will not work with localhost. If demoing locally you will need to change your hosts file so that your local ip can point towards something like \"liferay.demo\"."
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "CookieDomain",
+            "readOnly": false,
+            "repeatable": false,
             "required": false,
             "showLabel": true,
             "type": "text"
@@ -55,7 +78,7 @@
                 "en_US": "Segmentation Visits Threshold"
             },
             "predefinedValue": {
-                "en_US": ""
+                "en_US": "1"
             },
             "style": {
                 "en_US": ""

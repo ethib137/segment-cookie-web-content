@@ -1,5 +1,12 @@
 <script>
 	if ($('.fragments-editor').length == 0) {
+		var cKey = '${CookieKey.getData()}';
+		var cValue = '${CookieValue.getData()}';
+		var cDomain = <#if CookieDomain??>'${CookieDomain.getData()}'<#else>''</#if>;
+		var cThreshold = parseInt(${SegmentationVisitsThreshold.getData()});
+
+		var segmentCookieKey = cKey + '_DATA';
+
 		function getCookies() {
 			var cookiesObj = {};
 
@@ -30,7 +37,13 @@
 		}
 
 		function setCookie(key, value) {
-			document.cookie = key + '=' + value;
+			var cookie = key + '=' + value + ';';
+
+			if (cDomain != '') {
+				cookie = cookie + ' domain=' + cDomain + ';';
+			}
+
+			document.cookie = cookie;
 		}
 
 		function setSegmentCookie(key, value, visits) {
@@ -45,7 +58,7 @@
 		}
 
 		function handleSegmentCookie(key, value, threshold) {
-			var segmentCookie = getSegmentCookie(getCookies(), key);
+			var segmentCookie = getSegmentCookie(getCookies(), segmentCookieKey);
 
 			var visits = 1;
 
@@ -53,17 +66,15 @@
 
 			if (segmentCookie) {
 				console.log('segmentCookie:', segmentCookie);
+
 				visits = segmentCookie.visits + 1;
 			}
 
+			setSegmentCookie(segmentCookieKey, value, visits);
+
 			console.log('visits:', visits);
 
-			if (visits < threshold) {
-				console.log('Cookie NOT Added');
-
-				setSegmentCookie(key, value + 'false', visits);
-			}
-			else {
+			if (visits >= threshold) {
 				console.log('Cookie Added');
 
 				setCookie(key, value)
@@ -71,17 +82,18 @@
 		}
 
 		function resetSegmentCookie() {
-			setSegmentCookie(
-				'${CookieKey.getData()}',
-				'${CookieValue.getData()}' + 'false',
-				0
+			setCookie(
+				cKey,
+				cValue + 'false'
 			);
+
+			setSegmentCookie(segmentCookieKey, cValue, 0);
 		}
 
 		handleSegmentCookie(
-			'${CookieKey.getData()}',
-			'${CookieValue.getData()}',
-			parseInt(${SegmentationVisitsThreshold.getData()})
+			cKey,
+			cValue,
+			cThreshold
 		);
 	}
 </script>
